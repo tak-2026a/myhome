@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>內波佐助 (Uchiha Sasuke) - 角色專頁</title>
+    <style>
+        :root {
+            --naruto-orange: #FF9100;
+            --konoha-blue: #1C305C;
+            --uchiha-red: #A31D1D; /* 宇智波一族的紅色 */
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--konoha-blue);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--uchiha-red); /* 改為宇智波紅 */
+        }
+
+        header h1 { margin: 0; font-size: 2rem; }
+        header p { margin: 5px 0 0; opacity: 0.8; font-style: italic;}
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--konoha-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        h2 {
+            color: var(--konoha-blue);
+            border-left: 6px solid var(--uchiha-red);
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+
+        /* 家族成員樣式 */
+        .relatives-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .relatives-list li {
+            background: #fafafa;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .relative-name {
+            font-weight: bold;
+            color: var(--uchiha-red);
+        }
+
+        /* 小遊戲樣式 */
+        .game-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        #score-board {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--konoha-blue);
+        }
+
+        #game-area {
+            width: 600px;
+            height: 400px;
+            border: 2px solid var(--text-dark);
+            background-color: #333; /* 遊戲背景深色，突出大頭 */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden; /* 防止頭像跑出去 */
+            border-radius: 8px;
+        }
+
+        /* 佐助大頭 (點擊目標) */
+        #sasuke-head {
+            width: 80px;  /* 初始大小 */
+            height: 80px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/5900/5900401.png'); /* 使用一個免費的佐助頭像圖示 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%; /* 圓形 */
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.1s ease; /* 點擊時縮小的平滑效果 */
+            display: none; /* 初始隱藏，點擊開始才出現 */
+        }
+
+        #win-message {
+            display: none;
+            font-size: 3rem;
+            color: gold;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-top: 20px;
+        }
+
+        #start-btn {
+            background-color: var(--uchiha-red);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #start-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>內波佐助 (Uchiha Sasuke)</h1>
+        <p>「這雙眼睛，能看透黑暗。」</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← 回到主頁</a>
+
+        <h2>人物簡介</h2>
+        <p>內波佐助（宇智波佐助）是木葉忍者村宇智波一族的天才忍者。童年時期目睹全族被哥哥宇智波鼬叛滅，從此背負了沉重的仇恨，並以復仇為生存的唯一目的。為了追求力量，他曾離開木葉投奔大蛇丸，最終在痛苦中成長，與鳴人在終結之谷進行了命運的對決，並在戰後選擇了獨自旅行以守護木葉。</p>
+
+        <h2>親戚與家族成員</h2>
+        <ul class="relatives-list">
+            <li>
+                <span class="relative-name">宇智波鼬 (Itachi)</span>
+                <span>哥哥。為守護村子與弟弟而背負惡名的偉大忍者。</span>
+            </li>
+            <li>
+                <span class="relative-name">宇智波富嶽 (Fugaku)</span>
+                <span>父親。宇智波一族族長，木葉警務部部長。</span>
+            </li>
+            <li>
+                <span class="relative-name">宇智波美琴 (Mikoto)</span>
+                <span>母親。個性溫柔的宇智波族人。</span>
+            </li>
+            <li>
+                <span class="relative-name">春野櫻 (Sakura)</span>
+                <span>妻子。第七班夥伴，後來成為優秀的醫療忍者。</span>
+            </li>
+            <li>
+                <span class="relative-name">宇智波紗羅妲 (Sarada)</span>
+                <span>女兒。繼承了宇智波血統與櫻的怪力，夢想成為火影。</span>
+            </li>
+        </ul>
+
+        <div class="game-section">
+            <h2>小遊戲：連點佐助大頭！</h2>
+            <p>規則：點擊佐助大頭，越點會越小。點完 5 下後頭像消失並獲得 5 分。拿到 30 分即可獲勝！</p>
+            
+            <button id="start-btn">開始遊戲</button>
+            <div id="score-board">當前分數：<span id="score">0</span> / 30</div>
+            
+            <div id="game-area">
+                <div id="sasuke-head"></div>
+            </div>
+            
+            <div id="win-message">🏆 YOU WIN! 🏆</div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 火影忍者粉絲頁面 | Powered by GitHub Pages</p>
+    </footer>
+
+    <script>
+        // --- 遊戲邏輯 JS ---
+        const startBtn = document.getElementById('start-btn');
+        const gameArea = document.getElementById('game-area');
+        const sasukeHead = document.getElementById('sasuke-head');
+        const scoreDisplay = document.getElementById('score');
+        const winMessage = document.getElementById('win-message');
+
+        let score = 0;
+        let clickCount = 0; // 記錄當前頭像被點擊的次數
+        const targetClicks = 5; // 點擊多少下消失
+        const initialSize = 80; // 初始大小 (px)
+        const sizeDecrease = 15; // 每次點擊縮小多少 (px)
+        const winningScore = 30; // 獲勝分數
+
+        // 開始遊戲
+        startBtn.addEventListener('click', () => {
+            resetGame();
+            startBtn.style.display = 'none'; // 隱藏開始按鈕
+            spawnHead(); // 生成第一個頭
+        });
+
+        // 點擊佐助大頭的邏輯
+        sasukeHead.addEventListener('click', () => {
+            clickCount++;
+
+            if (clickCount < targetClicks) {
+                // 1. 越點越小
+                let newSize = initialSize - (clickCount * sizeDecrease);
+                if (newSize < 10) newSize = 10; // 設定最小尺寸
+                
+                sasukeHead.style.width = newSize + 'px';
+                sasukeHead.style.height = newSize + 'px';
+            } else {
+                // 2. 點完五下消失並拿5分
+                score += 5;
+                scoreDisplay.innerText = score;
+                clickCount = 0; // 重置點擊數
+                sasukeHead.style.display = 'none'; // 隱藏頭像
+
+                // 3. 檢查是否獲勝
+                if (score >= winningScore) {
+                    endGame(true);
+                } else {
+                    // 沒贏就繼續生成下一個
+                    spawnHead();
+                }
+            }
+        });
+
+        // 生成頭像到隨機位置
+        function spawnHead() {
+            clickCount = 0; // 重置點擊
+            // 重置初始大小
+            sasukeHead.style.width = initialSize + 'px';
+            sasukeHead.style.height = initialSize + 'px';
+
+            // 計算隨機位置 (確保頭像不會跑出 600x400 的區域)
+            const margin = 20; // 邊距
+            const maxX = gameArea.clientWidth - initialSize - margin;
+            const maxY = gameArea.clientHeight - initialSize - margin;
+
+            const randomX = Math.floor(Math.random() * maxX) + margin;
+            const randomY = Math.floor(Math.random() * maxY) + margin;
+
+            sasukeHead.style.left = randomX + 'px';
+            sasukeHead.style.top = randomY + 'px';
+            sasukeHead.style.display = 'block'; // 顯示
+        }
+
+        // 重置遊戲狀態
+        function resetGame() {
+            score = 0;
+            scoreDisplay.innerText = score;
+            clickCount = 0;
+            winMessage.style.display = 'none';
+            sasukeHead.style.display = 'none';
+        }
+
+        // 結束遊戲
+        function endGame(isWin) {
+            sasukeHead.style.display = 'none';
+            if (isWin) {
+                winMessage.style.display = 'block';
+            }
+            startBtn.innerText = '再玩一次？';
+            startBtn.style.display = 'inline-block';
+        }
+
+    </script>
+</body>
+</html>
