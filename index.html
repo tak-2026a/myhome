@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火影忍者：忍者之路</title>
+    <style>
+        :root {
+            --naruto-orange: #FF9100;
+            --konoha-blue: #1C305C;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--konoha-blue);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--naruto-orange);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h2 {
+            color: var(--konoha-blue);
+            border-left: 5px solid var(--naruto-orange);
+            padding-left: 10px;
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--naruto-orange);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>火影忍者：木葉傳奇</h1>
+        <p>「我絕對會成為火影的！」—— 鳴人</p>
+    </header>
+
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjWGpZfm9O6fuAQmD_hoDY5ON8jib41QYdkQ&s" alt="火影忍者主角群" class="hero-img">
+
+        <h2>故事簡介</h2>
+        <p>《火影忍者》講述了一個從小孤苦伶仃的少年——渦卷鳴人，為了獲得大家的認可，並守護心中最重要的羈絆，朝著忍者最高榮譽「火影」邁進的故事。</p>
+
+        <h2>主要角色介紹</h2>
+        <div class="character-grid">
+            <div class="card">
+                <h3>渦卷鳴人 (Uzumaki Naruto)</h3>
+                <p>本作主角，體內封印著九尾。雖然起初被村人疏遠，但憑著永不放棄的執著，成為了拯救世界的英雄。</p>
+            </div>
+
+            <div class="card">
+                <h3>內波佐助 (Uchiha Sasuke)</h3>
+                <p>鳴人的宿敵與摯友，宇智波一族的天才。為了尋求力量而走上復仇之路，最終與鳴人在終結之谷達成和解。</p>
+            </div>
+
+            <div class="card">
+                <h3>春野櫻 (Haruno Sakura)</h3>
+                <p>第七班的成員，擁有精準的查克拉控制能力。拜綱手為師後，成長為出色的醫療忍者與怪力戰士。</p>
+            </div>
+
+            <div class="card">
+                <h3>旗木卡卡西 (Hatake Kakashi)</h3>
+                <p>第七班的指導老師，被譽為「複製忍者」。性格看似慵懶，實則實力深不可測，是木葉的定海神針。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 火影忍者粉絲頁面 | 基於 GitHub Pages 架設</p>
+    </footer>
+
+</body>
+</html>
